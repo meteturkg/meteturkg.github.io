@@ -15,50 +15,41 @@
         .container {
             max-width: 400px;
             margin: auto;
-            background: rgba(255, 255, 255, 0.1);
+            background: #1e1e1e;
             padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
         }
         img {
             width: 100px;
             border-radius: 50%;
+            border: 3px solid #007bff;
         }
         h1 {
-            font-size: 24px;
+            font-size: 26px;
+            font-weight: bold;
+        }
+        p {
+            font-size: 16px;
+            color: #bbbbbb;
         }
         .links a {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             padding: 12px;
             margin: 10px 0;
-            background: rgba(0, 86, 255, 0.7);
+            background: linear-gradient(45deg, #007bff, #00c6ff);
             color: white;
             text-decoration: none;
             border-radius: 10px;
-            transition: 0.3s;
+            font-size: 18px;
             font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0, 86, 255, 0.3);
+            transition: 0.3s;
         }
         .links a:hover {
-            background: rgba(0, 86, 255, 1);
+            background: linear-gradient(45deg, #0056ff, #0094ff);
             transform: scale(1.05);
-        }
-        .links a:active {
-            transform: scale(0.95);
-        }
-        /* Premium Style */
-        .premium-button {
-            background: rgba(255, 223, 0, 0.8);
-            color: black;
-            box-shadow: 0 4px 8px rgba(255, 223, 0, 0.4);
-        }
-        .premium-button:hover {
-            background: rgba(255, 223, 0, 1);
-            transform: scale(1.05);
-        }
-        .premium-button:active {
-            transform: scale(0.95);
         }
     </style>
 </head>
@@ -66,14 +57,14 @@
     <div class="container">
         <img src="https://github.com/wynsher.png" alt="Profile Picture">
         <h1>wynsher</h1>
-        <p>developer</p>
+        <p>Developer</p>
         <div class="links">
             <a href="https://www.youtube.com/@wynsherdev" target="_blank">YouTube</a>
             <a href="https://tiktok.com/@wynsher" target="_blank">TikTok</a>
             <a href="https://instagram.com/wynsherdev" target="_blank">Instagram</a>
             <a href="https://www.roblox.com/users/1085515437/profile" target="_blank">Roblox</a>
             <a href="https://github.com/wynsher" target="_blank">GitHub</a>
-            <a href="https://discord.com/invite/Ps3zT4jFKc" target="_blank" class="premium-button">Crevy Bot</a> <!-- Premium buton -->
+            <a href="https://discord.com/invite/Ps3zT4jFKc" target="_blank">Can You Help Crevy? (My Bot)</a>
         </div>
     </div>
 </body>
