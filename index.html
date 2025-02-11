@@ -47,33 +47,18 @@
         .links a:active {
             transform: scale(0.95);
         }
-        /* Helper Chat */
-        .helper {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 250px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
+        /* Premium Style */
+        .premium-button {
+            background: rgba(255, 223, 0, 0.8);
+            color: black;
+            box-shadow: 0 4px 8px rgba(255, 223, 0, 0.4);
         }
-        .helper h3 {
-            margin: 0;
+        .premium-button:hover {
+            background: rgba(255, 223, 0, 1);
+            transform: scale(1.05);
         }
-        .chat-box {
-            max-height: 150px;
-            overflow-y: auto;
-            text-align: left;
-            font-size: 14px;
-        }
-        .chat-input {
-            width: 100%;
-            padding: 5px;
-            border-radius: 5px;
-            border: none;
-            margin-top: 5px;
+        .premium-button:active {
+            transform: scale(0.95);
         }
     </style>
 </head>
@@ -88,39 +73,8 @@
             <a href="https://instagram.com/wynsherdev" target="_blank">Instagram</a>
             <a href="https://www.roblox.com/users/1085515437/profile" target="_blank">Roblox</a>
             <a href="https://github.com/wynsher" target="_blank">GitHub</a>
-            <a href="https://discord.com/invite/Ps3zT4jFKc" target="_blank">Crevy Bot</a>
+            <a href="https://discord.com/invite/Ps3zT4jFKc" target="_blank" class="premium-button">Crevy Bot</a> <!-- Premium buton -->
         </div>
     </div>
-    
-    <div class="helper">
-        <h3>Helper Bot 🤖</h3>
-        <div class="chat-box" id="chat-box">
-            <p><strong>Bot:</strong> Merhaba! Bana bir şey sorabilirsin.</p>
-        </div>
-        <input type="text" class="chat-input" id="chat-input" placeholder="Sorunu yaz...">
-    </div>
-    
-    <script>
-        document.getElementById("chat-input").addEventListener("keypress", function(event) {
-            if (event.key === "Enter") {
-                let input = this.value.toLowerCase().trim();
-                let chatBox = document.getElementById("chat-box");
-                
-                let response = "Üzgünüm, bunu bilmiyorum.";
-                if (input.includes("merhaba")) {
-                    response = "Merhaba! Yardımcı olabilir miyim?";
-                } else if (input.includes("nasılsın")) {
-                    response = "Ben bir botum ama iyi olduğumu söyleyebilirim!";
-                } else if (input.includes("hangi diller")) {
-                    response = "HTML, CSS ve JavaScript ile çalışıyorum.";
-                }
-                
-                chatBox.innerHTML += `<p><strong>Sen:</strong> ${this.value}</p>`;
-                chatBox.innerHTML += `<p><strong>Bot:</strong> ${response}</p>`;
-                this.value = "";
-                chatBox.scrollTop = chatBox.scrollHeight;
-            }
-        });
-    </script>
 </body>
 </html>
