@@ -15,41 +15,65 @@
         .container {
             max-width: 400px;
             margin: auto;
-            background: #1e1e1e;
+            background: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
         }
         img {
             width: 100px;
             border-radius: 50%;
-            border: 3px solid #007bff;
         }
         h1 {
-            font-size: 26px;
-            font-weight: bold;
-        }
-        p {
-            font-size: 16px;
-            color: #bbbbbb;
+            font-size: 24px;
         }
         .links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: block;
             padding: 12px;
             margin: 10px 0;
-            background: linear-gradient(45deg, #007bff, #00c6ff);
+            background: rgba(0, 86, 255, 0.7);
             color: white;
             text-decoration: none;
             border-radius: 10px;
-            font-size: 18px;
-            font-weight: bold;
             transition: 0.3s;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 86, 255, 0.3);
         }
         .links a:hover {
-            background: linear-gradient(45deg, #0056ff, #0094ff);
+            background: rgba(0, 86, 255, 1);
             transform: scale(1.05);
+        }
+        .links a:active {
+            transform: scale(0.95);
+        }
+        /* Helper Chat */
+        .helper {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 250px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        .helper h3 {
+            margin: 0;
+        }
+        .chat-box {
+            max-height: 150px;
+            overflow-y: auto;
+            text-align: left;
+            font-size: 14px;
+        }
+        .chat-input {
+            width: 100%;
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -57,15 +81,46 @@
     <div class="container">
         <img src="https://github.com/wynsher.png" alt="Profile Picture">
         <h1>wynsher</h1>
-        <p>Developer</p>
+        <p>developer</p>
         <div class="links">
             <a href="https://www.youtube.com/@wynsherdev" target="_blank">YouTube</a>
             <a href="https://tiktok.com/@wynsher" target="_blank">TikTok</a>
             <a href="https://instagram.com/wynsherdev" target="_blank">Instagram</a>
             <a href="https://www.roblox.com/users/1085515437/profile" target="_blank">Roblox</a>
             <a href="https://github.com/wynsher" target="_blank">GitHub</a>
-            <a href="https://discord.com/invite/Ps3zT4jFKc" target="_blank">Can You Help Crevy? (My Bot)</a>
+            <a href="https://discord.com/invite/Ps3zT4jFKc" target="_blank">Crevy Bot</a>
         </div>
     </div>
+    
+    <div class="helper">
+        <h3>Helper Bot 🤖</h3>
+        <div class="chat-box" id="chat-box">
+            <p><strong>Bot:</strong> Merhaba! Bana bir şey sorabilirsin.</p>
+        </div>
+        <input type="text" class="chat-input" id="chat-input" placeholder="Sorunu yaz...">
+    </div>
+    
+    <script>
+        document.getElementById("chat-input").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                let input = this.value.toLowerCase().trim();
+                let chatBox = document.getElementById("chat-box");
+                
+                let response = "Üzgünüm, bunu bilmiyorum.";
+                if (input.includes("merhaba")) {
+                    response = "Merhaba! Yardımcı olabilir miyim?";
+                } else if (input.includes("nasılsın")) {
+                    response = "Ben bir botum ama iyi olduğumu söyleyebilirim!";
+                } else if (input.includes("hangi diller")) {
+                    response = "HTML, CSS ve JavaScript ile çalışıyorum.";
+                }
+                
+                chatBox.innerHTML += `<p><strong>Sen:</strong> ${this.value}</p>`;
+                chatBox.innerHTML += `<p><strong>Bot:</strong> ${response}</p>`;
+                this.value = "";
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        });
+    </script>
 </body>
 </html>
