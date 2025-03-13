@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #ffffff;
+            background: linear-gradient(135deg, #f5f5f5, #e1e1e1);
             color: #333;
             display: flex;
             justify-content: center;
@@ -16,47 +16,71 @@
             margin: 0;
         }
         .container {
-            background-color: #f9f9f9;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             text-align: center;
             width: 100%;
-            max-width: 400px;
+            max-width: 480px;
         }
         img {
-            width: 100px;
+            width: 120px;
             border-radius: 50%;
-            border: 3px solid #007bff;
+            border: 4px solid #ff6f61;
             margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        img:hover {
+            transform: scale(1.1);
         }
         h1 {
-            font-size: 24px;
+            font-size: 34px;
+            font-weight: 700;
             color: #333;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         p {
-            font-size: 16px;
+            font-size: 18px;
             color: #777;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
         .links a {
             display: block;
-            padding: 12px;
-            margin: 8px 0;
-            background-color: #007bff;
+            padding: 14px;
+            margin: 12px 0;
+            background: linear-gradient(135deg, #ff6f61, #ff9c9e);
             color: white;
             text-decoration: none;
-            border-radius: 10px;
-            font-size: 16px;
+            border-radius: 50px;
+            font-size: 18px;
             font-weight: bold;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         .links a:hover {
-            background-color: #0056b3;
+            background: linear-gradient(135deg, #ff9c9e, #ff6f61);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+        }
+        .links a:active {
+            transform: scale(0.98);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="https://git
+        <img src="https://github.com/wynsher.png" alt="Profile Picture">
+        <h1>wynsher</h1>
+        <p>Developer</p>
+        <div class="links">
+            <a href="https://www.youtube.com/@wynsherdev" target="_blank">YouTube</a>
+            <a href="https://tiktok.com/@wynsher" target="_blank">TikTok</a>
+            <a href="https://instagram.com/wynsherdev" target="_blank">Instagram</a>
+            <a href="https://www.roblox.com/users/1085515437/profile" target="_blank">Roblox</a>
+            <a href="https://github.com/wynsher" target="_blank">GitHub</a>
+            <a href="https://discord.com/invite/Ps3zT4jFKc" target="_blank">Can You Help WyN? (My Bot)</a>
+        </div>
+    </div>
+</body>
+</html>
