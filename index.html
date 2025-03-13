@@ -5,51 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>wynsher | Links</title>
     <style>
+        /* Genel stil */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            text-align: center;
-            padding: 20px;
-            color: white;
-        }
-        .container {
-            max-width: 400px;
-            margin: auto;
-            background: #1e1e1e;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
-        }
-        img {
-            width: 100px;
-            border-radius: 50%;
-            border: 3px solid #007bff;
-        }
-        h1 {
-            font-size: 26px;
-            font-weight: bold;
-        }
-        p {
-            font-size: 16px;
-            color: #bbbbbb;
-        }
-        .links a {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(145deg, #f3f3f3, #ffffff);
             display: flex;
-            align-items: center;
             justify-content: center;
-            padding: 12px;
-            margin: 10px 0;
-            background: linear-gradient(45deg, #007bff, #00c6ff);
-            color: white;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+        /* Container'ı şık hale getirme */
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 480px;
+        }
+        /* Profil fotoğrafı */
+        img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid #ff6f61;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        img:hover {
+            transform: scale(1.1);
+        }
+        /* Başlık stil */
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        /* Alt başlık stil */
+        p {
+            font-size: 18px;
+            color: #777;
+            margin-bottom: 30px;
+        }
+        /* Link butonları */
+        .links a {
+            display: block;
+            padding: 16px;
+            margin: 12px 0;
+            background: linear-gradient(135deg, #ff6f61, #ff9c9e);
+            color: #fff;
             text-decoration: none;
-            border-radius: 10px;
+            border-radius: 50px;
             font-size: 18px;
             font-weight: bold;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         .links a:hover {
-            background: linear-gradient(45deg, #0056ff, #0094ff);
-            transform: scale(1.05);
+            background: linear-gradient(135deg, #ff9c9e, #ff6f61);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        /* Alt link butonlarına daha yumuşak bir geçiş */
+        .links a:active {
+            transform: scale(0.98);
         }
     </style>
 </head>
