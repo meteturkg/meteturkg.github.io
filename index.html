@@ -1,200 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wynsher | Links</title>
-    <style>
-        /* Genel sayfa stili */
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            animation: backgroundAnimation 5s infinite alternate;
-        }
-
-        /* Container ayarları */
-        .container {
-            max-width: 400px;
-            width: 100%;
-            margin: auto;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            backdrop-filter: blur(10px);
-            animation: slideUp 1s ease-in-out;
-        }
-
-        @keyframes slideUp {
-            0% {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        /* Profil fotoğrafı */
-        img {
-            width: 120px;
-            border-radius: 50%;
-            border: 4px solid #fff;
-            margin-bottom: 20px;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-
-        /* Başlık */
-        h1 {
-            font-size: 32px;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 2s ease-out;
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Açıklama */
-        p {
-            font-size: 18px;
-            color: #ddd;
-            margin-bottom: 20px;
-            animation: fadeInText 2s ease-out;
-        }
-
-        @keyframes fadeInText {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Linkler */
-        .links a {
-            display: block;
-            padding: 14px;
-            margin: 12px 0;
-            background: #2575fc;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            animation: fadeInLink 0.5s ease-in-out;
-        }
-
-        .links a:hover {
-            background: #6a11cb;
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .links a:active {
-            transform: scale(0.98);
-        }
-
-        /* Discord Linki */
-        .discord {
-            background: #ff6f61;
-        }
-
-        .discord:hover {
-            background: #ff9c9e;
-        }
-
-        /* Fade in link animasyonu */
-        @keyframes fadeInLink {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Arka plan animasyonu */
-        @keyframes backgroundAnimation {
-            0% {
-                background: linear-gradient(135deg, #6a11cb, #2575fc);
-            }
-            50% {
-                background: linear-gradient(135deg, #ff9c9e, #ff6f61);
-            }
-            100% {
-                background: linear-gradient(135deg, #6a11cb, #2575fc);
-            }
-        }
-
-        /* Discord Linki hover animasyonu */
-        .discord {
-            animation: discordHover 2s ease-in-out infinite;
-        }
-
-        @keyframes discordHover {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.1);
-                opacity: 0.8;
-            }
-        }
-
-    </style>
+    <title>Linklerim</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <img src="https://github.com/wynsher.png" alt="Profile Picture">
-        <h1>wynsher</h1>
-        <p>Developer</p>
+        <h1>Linklerim</h1>
         <div class="links">
-            <a href="https://www.youtube.com/@wynsherdev" target="_blank">YouTube</a>
-            <a href="https://tiktok.com/@wynsher" target="_blank">TikTok</a>
-            <a href="https://instagram.com/wynsherdev" target="_blank">Instagram</a>
-            <a href="https://www.roblox.com/users/1085515437/profile" target="_blank">Roblox</a>
-            <a href="https://github.com/wynsher" target="_blank">GitHub</a>
-            <a href="https://discord.com/invite/Ps3zT4jFKc" target="_blank">wynerr official (my bot)</a>
-            <a href="https://discord.com/users/1159431835420467221" class="discord" target="_blank">Discord</a>
+            <a href="https://www.youtube.com/@kullaniciadi" target="_blank" class="link-item">
+                <img src="youtube-icon.png" alt="YouTube">
+                <span>YouTube</span>
+            </a>
+            <a href="https://tiktok.com/@kullaniciadi" target="_blank" class="link-item">
+                <img src="tiktok-icon.png" alt="TikTok">
+                <span>TikTok</span>
+            </a>
+            <a href="https://instagram.com/kullaniciadi" target="_blank" class="link-item">
+                <img src="instagram-icon.png" alt="Instagram">
+                <span>Instagram</span>
+            </a>
+            <a href="https://www.roblox.com/users/kullaniciadi/profile" target="_blank" class="link-item">
+                <img src="roblox-icon.png" alt="Roblox">
+                <span>Roblox</span>
+            </a>
+            <a href="https://github.com/kullaniciadi" target="_blank" class="link-item">
+                <img src="github-icon.png" alt="GitHub">
+                <span>GitHub</span>
+            </a>
+            <a href="https://discord.com/invite/kod" target="_blank" class="link-item">
+                <img src="discord-icon.png" alt="Discord">
+                <span>Discord</span>
+            </a>
         </div>
     </div>
 </body>
