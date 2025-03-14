@@ -1,7 +1,7 @@
 /* Genel stil ayarları */
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #121212;aa
+    font-family: 'Press Start 2P', cursive;
+    background-color: #000000;
     color: #ffffff;
     margin: 0;
     padding: 0;
@@ -9,17 +9,19 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 
 /* Konteyner ayarları */
 .container {
     text-align: center;
     padding: 20px;
-    border-radius: 10px;
-    background-color: #1e1e1e;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    background-color: #1a1a1a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
+    position: relative;
 }
 
 /* Başlık stili */
@@ -27,6 +29,10 @@ h1 {
     font-size: 36px;
     margin-bottom: 20px;
     color: #ff6f61;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
 }
 
 /* Linkler konteynerı */
@@ -34,20 +40,24 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    position: relative;
+    z-index: 1;
 }
 
 /* Link öğesi stili */
 .link-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
     background-color: #2a2a2a;
-    padding: 15px;
-    border-radius: 50px;
+    padding: 20px;
+    border-radius: 10px;
     text-decoration: none;
     color: #ffffff;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
@@ -57,11 +67,42 @@ h1 {
     transform: scale(1.05);
 }
 
-/* Link ikonları */
-.link-item img {
-    width: 30px;
-    height: 30px;
-    margin-right: 15px;
+/* Link öğesi aktifken */
+.link-item:active {
+    transform: scale(0.95);
+}
+
+/* Link metni */
+.link-item span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Arka plan animasyonu */
+.link-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%) rotate(45deg);
+    animation: spray 1s infinite;
+    z-index: 0;
+}
+
+/* Spray animasyonu */
+@keyframes spray {
+    0% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1);
+    }
 }
 
 /* Mobil uyumluluk */
@@ -71,6 +112,6 @@ h1 {
     }
     .link-item {
         font-size: 16px;
-        padding: 12px;
+        padding: 15px;
     }
 }
