@@ -1,183 +1,93 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linklerim</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>wynsher | Links</title>
     <style>
-        /* Genel stil ayarları */
         body {
-            font-family: 'Press Start 2P', cursive;
-            background: linear-gradient(135deg, #1d1d1d, #3e3e3e);
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            overflow: hidden;
+            margin: 0;
         }
-
-        /* Konteyner ayarları */
         .container {
-            text-align: center;
-            padding: 40px;
-            border-radius: 20px;
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
             width: 100%;
-            max-width: 600px;
-            position: relative;
-            transition: transform 0.3s ease;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
-
-        .container:hover {
-            transform: scale(1.02);
-        }
-
-        /* Profil fotoğrafı ve başlık stil */
-        .profile {
-            margin-bottom: 40px;
-        }
-
-        .profile-img {
+        img {
             width: 120px;
-            height: 120px;
             border-radius: 50%;
             border: 4px solid #ff6f61;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
             margin-bottom: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
         }
-
-        .profile-img:hover {
-            transform: scale(1.15);
-            box-shadow: 0 8px 20px rgba(255, 105, 135, 0.7);
+        img:hover {
+            transform: scale(1.1);
         }
-
         h1 {
-            font-size: 42px;
+            font-size: 30px;
+            font-weight: 700;
+            color: #333;
             margin-bottom: 10px;
-            color: #ff6f61;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
         }
-
-        /* Linkler konteynerı */
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            position: relative;
-        }
-
-        /* Link öğesi stili */
-        .link-item {
-            display: block;
-            background: linear-gradient(135deg, #ff6f61, #ff9c9e);
-            padding: 20px;
-            border-radius: 10px;
-            text-decoration: none;
-            color: #ffffff;
+        p {
             font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .links a {
+            display: block;
+            padding: 14px;
+            margin: 12px 0;
+            background: #ff6f61;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 16px;
             font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-
-        /* Link öğesi üzerine gelindiğinde */
-        .link-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 18px rgba(255, 0, 100, 0.5);
+        .links a:hover {
+            background: #ff9c9e;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
-
-        /* Link öğesi aktifken */
-        .link-item:active {
+        .links a:active {
             transform: scale(0.98);
         }
-
-        /* Link metni */
-        .link-item span {
-            position: relative;
-            z-index: 1;
+        .discord {
+            background: #9b4de5; /* Mor renk */
         }
-
-        /* Arka plan animasyonu */
-        .link-item::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 300%;
-            height: 300%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translate(-50%, -50%) rotate(45deg);
-            animation: spray 1s infinite;
-            z-index: 0;
-        }
-
-        /* Spray animasyonu */
-        @keyframes spray {
-            0% {
-                transform: translate(-50%, -50%) rotate(45deg) scale(1);
-            }
-            50% {
-                transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
-            }
-            100% {
-                transform: translate(-50%, -50%) rotate(45deg) scale(1);
-            }
-        }
-
-        /* Mobil uyumluluk */
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 32px;
-            }
-            .link-item {
-                font-size: 16px;
-                padding: 15px;
-            }
+        .discord:hover {
+            background: #b366f0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="profile">
-            <img src="https://github.com/wynsher.png" alt="Profil Fotoğrafı" class="profile-img">
-            <h1>wynsher</h1>
-            <p>Developer</p>
-        </div>
+        <img src="https://github.com/wynsher.png" alt="Profile Picture">
+        <h1>wynsher</h1>
+        <p>Developer</p>
         <div class="links">
-            <a href="https://www.youtube.com/@wynsherdev" target="_blank" class="link-item">
-                <span>YouTube</span>
-            </a>
-            <a href="https://tiktok.com/@wynsher" target="_blank" class="link-item">
-                <span>TikTok</span>
-            </a>
-            <a href="https://instagram.com/wynsherdev" target="_blank" class="link-item">
-                <span>Instagram</span>
-            </a>
-            <a href="https://www.roblox.com/users/1085515437/profile" target="_blank" class="link-item">
-                <span>Roblox</span>
-            </a>
-            <a href="https://github.com/wynsher" target="_blank" class="link-item">
-                <span>GitHub</span>
-            </a>
-            <a href="https://discord.com/users/1159431835420467221" target="_blank" class="link-item">
-                <span>Discord</span>
-            </a>
-            <a href="https://discord.gg/Ps3zT4jFKc" target="_blank" class="link-item">
-                <span>wynerr (my project)</span>
-            </a>
+            <a href="https://www.youtube.com/@wynsherdev" target="_blank">YouTube</a>
+            <a href="https://tiktok.com/@wynsher" target="_blank">TikTok</a>
+            <a href="https://instagram.com/wynsherdev" target="_blank">Instagram</a>
+            <a href="https://www.roblox.com/users/1085515437/profile" target="_blank">Roblox</a>
+            <a href="https://github.com/wynsher" target="_blank">GitHub</a>
+            <a href="https://discord.com/invite/Ps3zT4jFKc" target="_blank">wynerr official (my bot)</a>
+            <a href="https://discord.com/users/1159431835420467221" class="discord" target="_blank">Discord</a>
         </div>
     </div>
 </body>
