@@ -1,0 +1,76 @@
+/* Genel stil ayarları */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Konteyner ayarları */
+.container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Başlık stili */
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #ff6f61;
+}
+
+/* Linkler konteynerı */
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Link öğesi stili */
+.link-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Link öğesi üzerine gelindiğinde */
+.link-item:hover {
+    background-color: #ff6f61;
+    transform: scale(1.05);
+}
+
+/* Link ikonları */
+.link-item img {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+}
+
+/* Mobil uyumluluk */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 28px;
+    }
+    .link-item {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
