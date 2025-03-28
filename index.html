@@ -3,49 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
+    <title>@1qwynsher</title>
     <style>
+        @keyframes rgbEffect {
+            0% { color: #ff007f; }
+            25% { color: #ff00ff; }
+            50% { color: #8000ff; }
+            75% { color: #ff0080; }
+            100% { color: #ff007f; }
+        }
+
         body {
             font-family: Arial, sans-serif;
-            background-color: #ffffff;
-            color: #333;
+            background: #121212;
+            color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-        }
-        .container {
             text-align: center;
+        }
+
+        .container {
+            background: rgba(255, 0, 255, 0.1);
             padding: 30px;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(255, 0, 255, 0.2);
         }
-        button {
-            padding: 14px 28px;
-            background: #ff6f61;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 16px;
+
+        h1 {
+            font-size: 28px;
             font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            animation: rgbEffect 3s infinite alternate;
         }
-        button:hover {
-            background: #ff9c9e;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+        p {
+            font-size: 18px;
+            color: #d1a5ff;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff007f, #ff00ff, #8000ff);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(255, 0, 255, 0.3);
+        }
+
+        .btn:hover {
+            filter: brightness(1.2);
+            transform: translateY(-5px);
+        }
+
+        .wynsher {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #ff00ff;
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Yeni Siteye Taşındık</h1>
-        <p>Yeni bağlantılarım olduğu yer.</p>
-        <button onclick="window.location.href='https://guns.lol/wynsher'">Yeni Siteye Git</button>
+        <h1>@1qwynsher</h1>
+        <p>Bu site yeni adrese taşındı. Hemen geçiş yap!</p>
+        <a href="https://guns.lol/wynsher" class="btn">Yeni Siteye Git</a>
+        <div class="wynsher">wynsher</div>
     </div>
 </body>
 </html>
