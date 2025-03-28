@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Favicon Ekleme -->
-    <link rel="icon" href="assets/images/siteicon.png" type="image/png">
-    <title>1qwynsher |Custom Website</title>
-    <style
+    <title>1qwynsher|custom website</title>
+    <style>
         :root {
             --bg-color: #b5b5b5;
             --text-color: #000000;
@@ -181,20 +179,70 @@
         
         <div class="view-counter">
             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"></path></svg>
-            <span id="viewCount">0</span>
+            <span id="viewCount">877</span>
         </div>
     </div>
 
     <script>
-        // Ziyaretçi sayacı için localStorage kullanımı
+        // Gelişmiş ziyaretçi sayacı
         document.addEventListener('DOMContentLoaded', function() {
-            // Sayfa yüklendiğinde görüntüleme sayısını artır
-            let views = localStorage.getItem('pageViews');
-            views = views ? parseInt(views) + 1 : 1;
-            localStorage.setItem('pageViews', views);
+            // Başlangıç değeri
+            const initialCount = 877;
             
-            // Görüntüleme sayısını göster
-            document.getElementById('viewCount').textContent = views;
+            // Sayfa yüklendiğinde görüntüleme sayısını güncelle
+            updateViewCount();
+            
+            async function updateViewCount() {
+                try {
+                    // IP adresi al
+                    const ipResponse = await fetch('https://api.ipify.org?format=json');
+                    const ipData = await ipResponse.json();
+                    const userIP = ipData.ip;
+                    
+                    // Tarih bilgisi (sadece gün olarak)
+                    const today = new Date().toISOString().split('T')[0];
+                    
+                    // localStorage'dan mevcut verileri al
+                    const storedData = JSON.parse(localStorage.getItem('visitorData')) || {
+                        count: initialCount,
+                        lastIP: null,
+                        lastDate: null,
+                        viewedPages: {}
+                    };
+                    
+                    // Eğer bu sayfa için daha önce kayıt yoksa veya farklı IP/gün ise
+                    if (!storedData.viewedPages[window.location.pathname] || 
+                        storedData.viewedPages[window.location.pathname].ip !== userIP || 
+                        storedData.viewedPages[window.location.pathname].date !== today) {
+                        
+                        // Sayaç artışı yap
+                        storedData.count += 1;
+                        storedData.lastIP = userIP;
+                        storedData.lastDate = today;
+                        
+                        // Bu sayfa için ziyaret bilgisini kaydet
+                        storedData.viewedPages[window.location.pathname] = {
+                            ip: userIP,
+                            date: today,
+                            lastVisit: new Date().toISOString()
+                        };
+                        
+                        // Güncellenmiş veriyi kaydet
+                        localStorage.setItem('visitorData', JSON.stringify(storedData));
+                    }
+                    
+                    // Görüntüleme sayısını göster
+                    document.getElementById('viewCount').textContent = storedData.count;
+                    
+                } catch (error) {
+                    console.error('Hata oluştu:', error);
+                    // Hata durumunda localStorage'dan mevcut değeri göster
+                    const storedData = JSON.parse(localStorage.getItem('visitorData')) || {
+                        count: initialCount
+                    };
+                    document.getElementById('viewCount').textContent = storedData.count;
+                }
+            }
         });
     </script>
 </body>
