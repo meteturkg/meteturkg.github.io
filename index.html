@@ -1,103 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>@1qwynsher | Links</title>
-  <style>
-    /* Temel Sıfırlama */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #121212, #1e1e1e);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      color: #fff;
-      padding: 20px;
-    }
-    .container {
-      background: rgba(0, 0, 0, 0.5);
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-      text-align: center;
-      width: 90%;
-      max-width: 400px;
-    }
-    .profile img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 4px solid #ff6f61;
-      transition: transform 0.3s ease;
-      margin-bottom: 1rem;
-    }
-    .profile img:hover {
-      transform: scale(1.1);
-    }
-    .username {
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(45deg, #ff007f, #ff00ff, #8000ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: rgbEffect 3s infinite alternate;
-    }
-    @keyframes rgbEffect {
-      0% { filter: hue-rotate(0deg); }
-      100% { filter: hue-rotate(360deg); }
-    }
-    .description {
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
-      color: #bbb;
-    }
-    .links a {
-      display: block;
-      padding: 1rem;
-      margin: 0.75rem 0;
-      background: linear-gradient(45deg, #ff007f, #ff00ff, #8000ff);
-      text-decoration: none;
-      color: #fff;
-      border-radius: 50px;
-      transition: transform 0.3s, filter 0.3s;
-      font-weight: bold;
-    }
-    .links a:hover {
-      transform: translateY(-5px);
-      filter: brightness(1.2);
-    }
-    .links a.discord {
-      background: #9b4de5;
-    }
-    .links a.discord:hover {
-      background: #b366f0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@1qwynsher | Links</title>
+    <style>
+        @keyframes rgbColor {
+            0% { color: #ff0000; }
+            25% { color: #ff00ff; }
+            50% { color: #0000ff; }
+            75% { color: #00ffff; }
+            100% { color: #00ff00; }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        img {
+            width: 120px;
+            border-radius: 50%;
+            border: 3px solid #ff007f;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: bold;
+            animation: rgbColor 3s infinite alternate;
+        }
+
+        .links a {
+            display: block;
+            background: #ff007f;
+            color: white;
+            padding: 12px;
+            margin: 10px 0;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .links a:hover {
+            background: #ff66a3;
+            transform: scale(1.05);
+        }
+
+        .discord {
+            background: #7289da;
+        }
+
+        .discord:hover {
+            background: #8ea1e1;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="profile">
-      <img src="https://github.com/wynsher.png" alt="Profile Picture">
+    <div class="container">
+        <img src="https://github.com/wynsher.png" alt="Profile Picture">
+        <h1>@1qwynsher</h1>
+        <p>Developer | Content Creator</p>
+        <div class="links">
+            <a href="https://www.youtube.com/@wynsherdev" target="_blank">YouTube</a>
+            <a href="https://tiktok.com/@wynsher" target="_blank">TikTok</a>
+            <a href="https://instagram.com/wynsherdev" target="_blank">Instagram</a>
+            <a href="https://www.roblox.com/users/1085515437/profile" target="_blank">Roblox</a>
+            <a href="https://github.com/wynsher" target="_blank">GitHub</a>
+            <a href="https://discord.com/invite/Ps3zT4jFKc" class="discord" target="_blank">Discord Server</a>
+        </div>
     </div>
-    <div class="username">@1qwynsher</div>
-    <div class="description">currently doing nothing</div>
-    <div class="links">
-      <a href="https://www.youtube.com/@wynsherdev" target="_blank">YouTube</a>
-      <a href="https://tiktok.com/@wynsher" target="_blank">TikTok</a>
-      <a href="https://instagram.com/wynsherdev" target="_blank">Instagram</a>
-      <a href="https://www.roblox.com/users/1085515437/profile" target="_blank">Roblox</a>
-      <a href="https://github.com/wynsher" target="_blank">GitHub</a>
-      <a href="https://discord.com/invite/Ps3zT4jFKc" target="_blank">wynerr official (my bot)</a>
-      <a href="https://discord.com/users/1159431835420467221" class="discord" target="_blank">Discord</a>
-    </div>
-  </div>
 </body>
 </html>
