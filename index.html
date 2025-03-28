@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@1qwynsher</title>
+    <title>@1qwynsher | Links</title>
     <style>
         @keyframes rgbEffect {
             0% { color: #ff007f; }
@@ -30,12 +30,27 @@
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 8px 30px rgba(255, 0, 255, 0.2);
+            width: 90%;
+            max-width: 400px;
         }
 
-        h1 {
+        .rgb-text {
             font-size: 28px;
             font-weight: bold;
             animation: rgbEffect 3s infinite alternate;
+            margin-bottom: 10px;
+        }
+
+        img {
+            width: 120px;
+            border-radius: 50%;
+            border: 4px solid #ff6f61;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.1);
         }
 
         p {
@@ -44,39 +59,48 @@
             margin-bottom: 20px;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
+        .links a {
+            display: block;
+            padding: 14px;
+            margin: 12px 0;
             background: linear-gradient(45deg, #ff007f, #ff00ff, #8000ff);
             color: white;
-            font-size: 18px;
-            font-weight: bold;
             text-decoration: none;
             border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
             transition: 0.3s;
             box-shadow: 0 4px 12px rgba(255, 0, 255, 0.3);
         }
 
-        .btn:hover {
+        .links a:hover {
             filter: brightness(1.2);
             transform: translateY(-5px);
         }
 
-        .wynsher {
-            margin-top: 20px;
-            font-size: 22px;
-            font-weight: bold;
-            color: #ff00ff;
-            text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+        .discord {
+            background: #9b4de5;
+        }
+
+        .discord:hover {
+            background: #b366f0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>@1qwynsher</h1>
-        <p>Bu site yeni adrese taşındı. Hemen geçiş yap!</p>
-        <a href="https://guns.lol/wynsher" class="btn">Yeni Siteye Git</a>
-        <div class="wynsher">wynsher</div>
+        <div class="rgb-text">@1qwynsher</div>
+        <img src="https://github.com/wynsher.png" alt="Profile Picture">
+        <p>Developer & Content Creator</p>
+        <div class="links">
+            <a href="https://www.youtube.com/@wynsherdev" target="_blank">YouTube</a>
+            <a href="https://tiktok.com/@wynsher" target="_blank">TikTok</a>
+            <a href="https://instagram.com/wynsherdev" target="_blank">Instagram</a>
+            <a href="https://www.roblox.com/users/1085515437/profile" target="_blank">Roblox</a>
+            <a href="https://github.com/wynsher" target="_blank">GitHub</a>
+            <a href="https://discord.com/invite/Ps3zT4jFKc" target="_blank">wynerr official (my bot)</a>
+            <a href="https://discord.com/users/1159431835420467221" class="discord" target="_blank">Discord</a>
+        </div>
     </div>
 </body>
 </html>
