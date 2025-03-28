@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>@1qwynsher | Links</title>
   <style>
-    /* Sıfırlama */
+    /* Temel Sıfırlama */
     * {
       margin: 0;
       padding: 0;
@@ -80,23 +80,15 @@
     .links a.discord:hover {
       background: #b366f0;
     }
-    .visitor-count {
-      margin-top: 1.5rem;
-      font-size: 1rem;
-    }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Profil Bölümü -->
     <div class="profile">
       <img src="https://github.com/wynsher.png" alt="Profile Picture">
     </div>
-    <!-- RGB Efektli Kullanıcı Adı -->
     <div class="username">@1qwynsher</div>
-    <!-- Açıklama -->
     <div class="description">currently doing nothing</div>
-    <!-- Bağlantılar -->
     <div class="links">
       <a href="https://www.youtube.com/@wynsherdev" target="_blank">YouTube</a>
       <a href="https://tiktok.com/@wynsher" target="_blank">TikTok</a>
@@ -106,22 +98,6 @@
       <a href="https://discord.com/invite/Ps3zT4jFKc" target="_blank">wynerr official (my bot)</a>
       <a href="https://discord.com/users/1159431835420467221" class="discord" target="_blank">Discord</a>
     </div>
-    <!-- Ziyaretçi Sayacı (örneğin, başlangıç değeri 276 ile) -->
-    <div class="visitor-count">
-      <p>Ziyaretçi Sayısı: <span id="visitorCount">276</span></p>
-    </div>
   </div>
-
-  <script>
-    // CountAPI ile ziyaretçi sayacını güncelle (örnek: başlangıç değeri 276)
-    fetch('https://api.countapi.xyz/hit/yourNamespace/visitorCount')
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById('visitorCount').textContent = data.value;
-      })
-      .catch(err => {
-        console.error('Counter API hatası:', err);
-      });
-  </script>
 </body>
 </html>
