@@ -1,106 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@1qwynsher | Links</title>
-    <style>
-        @keyframes rgbEffect {
-            0% { color: #ff007f; }
-            25% { color: #ff00ff; }
-            50% { color: #8000ff; }
-            75% { color: #ff0080; }
-            100% { color: #ff007f; }
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #121212;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
-        }
-
-        .container {
-            background: rgba(255, 0, 255, 0.1);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 30px rgba(255, 0, 255, 0.2);
-            width: 90%;
-            max-width: 400px;
-        }
-
-        .rgb-text {
-            font-size: 28px;
-            font-weight: bold;
-            animation: rgbEffect 3s infinite alternate;
-            margin-bottom: 10px;
-        }
-
-        img {
-            width: 120px;
-            border-radius: 50%;
-            border: 4px solid #ff6f61;
-            margin-bottom: 15px;
-            transition: transform 0.3s ease;
-        }
-
-        img:hover {
-            transform: scale(1.1);
-        }
-
-        p {
-            font-size: 18px;
-            color: #d1a5ff;
-            margin-bottom: 20px;
-        }
-
-        .links a {
-            display: block;
-            padding: 14px;
-            margin: 12px 0;
-            background: linear-gradient(45deg, #ff007f, #ff00ff, #8000ff);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: bold;
-            transition: 0.3s;
-            box-shadow: 0 4px 12px rgba(255, 0, 255, 0.3);
-        }
-
-        .links a:hover {
-            filter: brightness(1.2);
-            transform: translateY(-5px);
-        }
-
-        .discord {
-            background: #9b4de5;
-        }
-
-        .discord:hover {
-            background: #b366f0;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@1qwynsher | Links</title>
+  <style>
+    /* Sıfırlama */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #121212, #1e1e1e);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #fff;
+      padding: 20px;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+    .profile img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #ff6f61;
+      transition: transform 0.3s ease;
+      margin-bottom: 1rem;
+    }
+    .profile img:hover {
+      transform: scale(1.1);
+    }
+    .username {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(45deg, #ff007f, #ff00ff, #8000ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rgbEffect 3s infinite alternate;
+    }
+    @keyframes rgbEffect {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+    .description {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      color: #bbb;
+    }
+    .links a {
+      display: block;
+      padding: 1rem;
+      margin: 0.75rem 0;
+      background: linear-gradient(45deg, #ff007f, #ff00ff, #8000ff);
+      text-decoration: none;
+      color: #fff;
+      border-radius: 50px;
+      transition: transform 0.3s, filter 0.3s;
+      font-weight: bold;
+    }
+    .links a:hover {
+      transform: translateY(-5px);
+      filter: brightness(1.2);
+    }
+    .links a.discord {
+      background: #9b4de5;
+    }
+    .links a.discord:hover {
+      background: #b366f0;
+    }
+    .visitor-count {
+      margin-top: 1.5rem;
+      font-size: 1rem;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="rgb-text">@1qwynsher</div>
-        <img src="https://github.com/wynsher.png" alt="Profile Picture">
-        <p>Developer & Content Creator</p>
-        <div class="links">
-            <a href="https://www.youtube.com/@wynsherdev" target="_blank">YouTube</a>
-            <a href="https://tiktok.com/@wynsher" target="_blank">TikTok</a>
-            <a href="https://instagram.com/wynsherdev" target="_blank">Instagram</a>
-            <a href="https://www.roblox.com/users/1085515437/profile" target="_blank">Roblox</a>
-            <a href="https://github.com/wynsher" target="_blank">GitHub</a>
-            <a href="https://discord.com/invite/Ps3zT4jFKc" target="_blank">wynerr official (my bot)</a>
-            <a href="https://discord.com/users/1159431835420467221" class="discord" target="_blank">Discord</a>
-        </div>
+  <div class="container">
+    <!-- Profil Bölümü -->
+    <div class="profile">
+      <img src="https://github.com/wynsher.png" alt="Profile Picture">
     </div>
+    <!-- RGB Efektli Kullanıcı Adı -->
+    <div class="username">@1qwynsher</div>
+    <!-- Açıklama -->
+    <div class="description">currently doing nothing</div>
+    <!-- Bağlantılar -->
+    <div class="links">
+      <a href="https://www.youtube.com/@wynsherdev" target="_blank">YouTube</a>
+      <a href="https://tiktok.com/@wynsher" target="_blank">TikTok</a>
+      <a href="https://instagram.com/wynsherdev" target="_blank">Instagram</a>
+      <a href="https://www.roblox.com/users/1085515437/profile" target="_blank">Roblox</a>
+      <a href="https://github.com/wynsher" target="_blank">GitHub</a>
+      <a href="https://discord.com/invite/Ps3zT4jFKc" target="_blank">wynerr official (my bot)</a>
+      <a href="https://discord.com/users/1159431835420467221" class="discord" target="_blank">Discord</a>
+    </div>
+    <!-- Ziyaretçi Sayacı (örneğin, başlangıç değeri 276 ile) -->
+    <div class="visitor-count">
+      <p>Ziyaretçi Sayısı: <span id="visitorCount">276</span></p>
+    </div>
+  </div>
+
+  <script>
+    // CountAPI ile ziyaretçi sayacını güncelle (örnek: başlangıç değeri 276)
+    fetch('https://api.countapi.xyz/hit/yourNamespace/visitorCount')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('visitorCount').textContent = data.value;
+      })
+      .catch(err => {
+        console.error('Counter API hatası:', err);
+      });
+  </script>
 </body>
 </html>
