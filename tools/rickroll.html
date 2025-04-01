@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="refresh" content="0; url=https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-    <title>Yönlendiriliyor...</title>
+    <title></title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            overflow: hidden;
+        }
+    </style>
     <script>
-        window.location.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+        // 1. Tarayıcı geçmişinde Rickroll URL'si görünmesin diye replace kullanıyoruz
+        // 2. Otomatik oynatma ve sessiz mod ekliyoruz (mobile uyumlu)
+        window.location.replace("https://zws.im/󠁷󠁨󠁺󠁪󠁿󠁶󠁫");
+        
+        // Çift koruma: Meta refresh (tarayıcıların %99'unda çalışır)
+        document.write('<meta http-equiv="refresh" content="0; url=https://www.youtube.com/watch?v=dQw4w9WgXcQ?autoplay=1&mute=1&controls=0">');
     </script>
 </head>
 <body>
-    <!-- Görünmez sayfa -->
+    <!-- Hiçbir şey yok -->
 </body>
 </html>
