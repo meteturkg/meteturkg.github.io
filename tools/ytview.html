@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="siteicon.png">
+  <title>YouTube Video Viewer</title>
+  <style>
+    :root {
+      --primary: #000000;
+      --background: #f0f0f0;
+      --text: #333333;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --accent: #555555;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background-color: var(--background);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.5;
+      color: var(--text);
+      text-align: center;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      padding: 2rem;
+      width: 100%;
+      max-width: 420px;
+      border: 1px solid var(--border);
+    }
+
+    h1 { 
+      font-size: 2rem; 
+      font-weight: 600; 
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin: 1.5rem 0;
+      width: 100%;
+      max-width: 240px;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .signature {
+      display: block;
+      margin-top: 2rem;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    #videoContainer iframe {
+      border-radius: 16px; /* Bu satır, videonun köşelerini yuvarlar */
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 1.5rem; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="card">
+    <h1>YT view</h1>
+
+    <!-- Input and button for YouTube Video Viewer -->
+    <input type="text" id="youtubeUrl" placeholder="Enter YouTube URL" style="padding: 10px; width: 80%; margin-bottom: 20px; border-radius: 8px; border: 1px solid #e2e8f0;">
+    <button onclick="loadVideo()" class="btn">view</button>
+
+    <p id="errorMessage" class="error"></p>
+
+    <div id="videoContainer" style="margin-top: 20px; display: none;">
+      <iframe id="youtubeFrame" width="100%" height="250" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <!-- Footer -->
+    <span class="signature">wynsher</span>
+  </div>
+
+  <script>
+    function loadVideo() {
+      const urlInput = document.getElementById('youtubeUrl').value;
+      const videoContainer = document.getElementById('videoContainer');
+      const youtubeFrame = document.getElementById('youtubeFrame');
+      const errorMessage = document.getElementById('errorMessage');
+      
+const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^/]+\/.*\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([\w-]{11})(?:[^\s]*)/;
+
+      const match = urlInput.match(youtubeRegex);
+      
+      if (match) {
+        const videoId = match[1];
+        youtubeFrame.src = `https://www.youtube.com/embed/${videoId}`;
+        videoContainer.style.display = 'block';
+        errorMessage.textContent = ''; // Clear any previous errors
+      } else {
+        errorMessage.textContent = 'Invalid YouTube URL! Please enter a valid URL.';
+        videoContainer.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
