@@ -119,7 +119,7 @@
       const youtubeFrame = document.getElementById('youtubeFrame');
       const errorMessage = document.getElementById('errorMessage');
       
-const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^/]+\/.*\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([\w-]{11})(?:[^\s]*)/;
+const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:shorts\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([\w-]{11})(?:[^\s]*)/;
 
       const match = urlInput.match(youtubeRegex);
       
