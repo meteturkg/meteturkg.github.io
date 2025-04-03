@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOOL</title>
-    <link rel="icon" type="image/png" href="siteicon.png">
+    <title>IP Address</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #2a2a2a, #4f4f4f);
-            color: #f0f0f0;
+            background: linear-gradient(135deg, #fffacd, #fff8e1); /* Sarı ve beyazın yoğun karışımı */
+            color: #333;
             margin: 0;
             padding: 0;
             display: flex;
@@ -22,23 +21,69 @@
         .ip-container {
             background-color: rgba(0, 0, 0, 0.6);
             color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            font-size: 30px;
+            padding: 40px;
+            border-radius: 15px;
+            font-size: 36px;
             text-align: center;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 600px;
+            opacity: 0; /* Başlangıçta görünmez */
+            transform: translateY(100px); /* Başlangıçta altta */
+            animation: slideUp 0.5s ease-out forwards; /* Hızlı animasyon */
         }
 
         .ip-info {
             color: #4caf50;
             font-weight: bold;
+            font-size: 28px;
+            display: block;
+            margin-bottom: 10px;
+            visibility: hidden; /* Başlangıçta görünmez */
+        }
+
+        #ip-output {
+            font-size: 40px;
+            font-weight: bold;
+            color: #f0e68c; /* Altın sarısı tonu */
+            letter-spacing: 1px;
+            word-wrap: break-word;
+            visibility: hidden; /* IP adresi kayarken görünmez */
+        }
+
+        /* IP kutusunun hızlıca yukarı hareket etmesini sağlayacak animasyon */
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .ip-container {
+                padding: 20px;
+                font-size: 24px;
+            }
+
+            .ip-info {
+                font-size: 22px;
+            }
+
+            #ip-output {
+                font-size: 30px;
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="ip-container" id="ip-container">
-        <span class="ip-info">IP:</span> <span id="ip-output"></span>
+        <div class="ip-info" id="ip-info">Your IP Address:</div>
+        <span id="ip-output"></span>
     </div>
 
     <script>
@@ -46,9 +91,19 @@
             .then(response => response.json())
             .then(data => {
                 document.getElementById('ip-output').textContent = data.ip;
+
+                // "Your IP Address" metnini ve IP adresini kayma bitiminde görünür yapıyoruz
+                setTimeout(() => {
+                    document.getElementById('ip-info').style.visibility = 'visible';
+                    document.getElementById('ip-output').style.visibility = 'visible';
+                }, 500); // Kayma animasyonu bittikten sonra görünür olacak
             })
             .catch(() => {
                 document.getElementById('ip-output').textContent = 'Error';
+                setTimeout(() => {
+                    document.getElementById('ip-info').style.visibility = 'visible';
+                    document.getElementById('ip-output').style.visibility = 'visible';
+                }, 500);
             });
     </script>
 
