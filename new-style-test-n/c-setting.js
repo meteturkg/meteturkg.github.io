@@ -1,4 +1,10 @@
 window.addEventListener('load', () => {
+  if(config.showLoading){
+    document.getElementById('loading').style.display = 'flex';
+  } else {
+    document.getElementById('loading').style.display = 'none';
+  }
+
   document.body.style.background = config.background;
   document.querySelectorAll('.btn').forEach(btn => {
     btn.style.background = config.buttonBackground;
@@ -13,14 +19,14 @@ window.addEventListener('load', () => {
 
   document.querySelector('footer span').textContent = config.name;
 
-  if(config.rainbow) {
+  if(config.rainbow){
     const gradient = "red,orange,yellow,green,blue,indigo,violet";
     nameEl.style.background = `linear-gradient(90deg, ${gradient}, red)`;
     nameEl.style.backgroundSize = '400% 100%';
     nameEl.style.webkitBackgroundClip = 'text';
     nameEl.style.webkitTextFillColor = 'transparent';
-    nameEl.style.animation = `rainbow ${config.rainbowSpeed}s linear infinite`;
-    
+    nameEl.style.animation = `rainbow 5s linear infinite`;
+
     const styleEl = document.createElement('style');
     styleEl.innerHTML = `
       @keyframes rainbow {
