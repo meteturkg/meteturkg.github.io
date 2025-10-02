@@ -1,50 +1,136 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>*/</title>
+  <title>meteturkg</title>
   <meta name="google" content="notranslate"/>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="apple-touch-icon" href="favicon.png"/>
+  <meta name="theme-color" content="#E7ECE8"/>
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --font: 'Satoshi', sans-serif;
       --fg: #333;
+      --accent: #e0e0e0;
       --hover: #d6dadb;
+      --font: 'Satoshi', sans-serif;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
+      color: var(--fg);
       font-family: var(--font);
       overflow-x:hidden;
       scroll-behavior: smooth;
     }
-
-    #loading { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; z-index:999; }
-    .spinner { width:48px; height:48px; border:5px solid #e0e0e0; border-top-color:var(--fg); border-radius:50%; animation:spin 1s linear infinite; }
+    #loading {
+      position:fixed; inset:0;
+      display:flex; align-items:center; justify-content:center;
+      z-index:999;
+    }
+    .spinner {
+      width:48px; height:48px;
+      border:5px solid var(--accent);
+      border-top-color:var(--fg);
+      border-radius:50%;
+      animation:spin 1s linear infinite;
+    }
     @keyframes spin { to{transform:rotate(360deg);} }
 
-    .hero { height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:0 5vw; }
-    .avatar { width:160px; height:160px; border-radius:50%; background:center/cover no-repeat; box-shadow:0 6px 16px rgba(0,0,0,0.2); }
-    .name { margin-top:20px; font-size:clamp(1.8rem,4vw,2.5rem); font-weight:600; display:inline-block; }
-    .subtitle { margin-top:8px; font-size:clamp(1rem,2.5vw,1.2rem); color:rgba(51,51,51,0.7); }
+    .hero {
+      height:100vh;
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      text-align:center;
+      position:relative;
+      padding:0 5vw;
+    }
+    .avatar {
+      width:160px; height:160px;
+      border-radius:50%;
+      background-size: cover;
+      background-position: center;
+      box-shadow:0 6px 16px rgba(0,0,0,0.2);
+    }
+    .name {
+      margin-top:20px;
+      font-size:clamp(1.8rem, 4vw, 2.5rem);
+      font-weight:600;
+    }
+    .subtitle {
+      margin-top:8px;
+      font-size:clamp(1rem, 2.5vw, 1.2rem);
+      color:rgba(51,51,51,0.7);
+    }
 
-    .arrow { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); width:40px; height:40px; cursor:pointer; animation:bounce 1.5s ease-in-out infinite alternate; z-index:10; transition:opacity .5s; }
-    @keyframes bounce { from { transform: translateX(-50%) translateY(0);} to { transform: translateX(-50%) translateY(10px);} }
+    .arrow {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      animation: bounce 1.5s ease-in-out infinite alternate;
+      z-index: 10;
+      transition: opacity 0.5s ease;
+    }
+    @keyframes bounce {
+      from { transform: translateX(-50%) translateY(0); }
+      to   { transform: translateX(-50%) translateY(10px); }
+    }
 
-    #links { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; padding:10px 5vw; opacity:0; transform:translateY(50px); transition:opacity 1s ease, transform 1s ease; max-width:600px; margin:20px auto 0; }
-    #links.show { opacity:1; transform:translateY(0); }
-    .btn { padding:14px 0; border-radius:16px; box-shadow:0 2px 8px rgba(0,0,0,0.08); text-decoration:none; font-weight:500; text-align:center; width:100%; height:60px; display:flex; align-items:center; justify-content:center; transition:transform .2s, background .3s; }
-    .btn:hover { transform:scale(1.03); }
+    #links {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding: 10px 5vw;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+      max-width: 600px;
+      margin: 20px auto 0;
+    }
+    #links.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .btn {
+      padding: 14px 0;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      text-decoration: none;
+      font-weight: 500;
+      transition: transform .2s, background .3s;
+      text-align: center;
+      width: 100%;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn:hover { transform: scale(1.03); }
 
-    @keyframes rainbow { 0%{background-position:0% 0%} 100%{background-position:400% 0%} }
-
-    footer { padding:16px 20px; max-width:600px; margin:40px auto; font-family:var(--font); font-size:14px; display:flex; justify-content:space-between; align-items:center; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.08); }
-    footer span { font-weight:600; }
+    footer {
+      padding: 16px 20px;
+      max-width: 600px;
+      margin: 40px auto;
+      font-family: var(--font);
+      color: var(--fg);
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
   </style>
 </head>
 <body>
 
-  <div id="loading"><div class="spinner"></div></div>
+  <div id="loading">
+    <div class="spinner"></div>
+  </div>
 
   <section class="hero">
     <div class="avatar"></div>
@@ -52,8 +138,8 @@
     <div class="subtitle"></div>
   </section>
 
-  <svg id="arrow" class="arrow" onclick="document.getElementById('links').scrollIntoView({behavior:'smooth'})" viewBox="0 0 24 24" width="40" height="40">
-    <polyline points="6 9 12 15 18 9" fill="none" stroke="var(--fg)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <svg id="arrow" class="arrow" onclick="scrollToLinks()" viewBox="0 0 24 24" width="40" height="40">
+    <polyline points="6 9 12 15 18 9" fill="none" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
 
   <section id="links">
@@ -71,8 +157,21 @@
     <span></span>
   </footer>
 
-  <script src="c-setting.js"></script>
   <script src="c.js"></script>
+  <script src="c-setting.js"></script>
+  <script>
+    function scrollToLinks(){
+      document.getElementById('links').scrollIntoView({behavior:'smooth'});
+    }
+    const arrow = document.getElementById('arrow');
+    const links = document.getElementById('links');
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > window.innerHeight * 0.2){
+        links.classList.add('show');
+        arrow.style.opacity = '0';
+      }
+    });
+  </script>
+
 </body>
 </html>
-
