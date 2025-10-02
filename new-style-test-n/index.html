@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>*/</title>
+  <meta name="google" content="notranslate"/>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --font: 'Satoshi', sans-serif;
+      --fg: #333;
+      --hover: #d6dadb;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: var(--font);
+      overflow-x:hidden;
+      scroll-behavior: smooth;
+    }
+
+    #loading { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; z-index:999; }
+    .spinner { width:48px; height:48px; border:5px solid #e0e0e0; border-top-color:var(--fg); border-radius:50%; animation:spin 1s linear infinite; }
+    @keyframes spin { to{transform:rotate(360deg);} }
+
+    .hero { height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:0 5vw; }
+    .avatar { width:160px; height:160px; border-radius:50%; background:center/cover no-repeat; box-shadow:0 6px 16px rgba(0,0,0,0.2); }
+    .name { margin-top:20px; font-size:clamp(1.8rem,4vw,2.5rem); font-weight:600; display:inline-block; }
+    .subtitle { margin-top:8px; font-size:clamp(1rem,2.5vw,1.2rem); color:rgba(51,51,51,0.7); }
+
+    .arrow { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); width:40px; height:40px; cursor:pointer; animation:bounce 1.5s ease-in-out infinite alternate; z-index:10; transition:opacity .5s; }
+    @keyframes bounce { from { transform: translateX(-50%) translateY(0);} to { transform: translateX(-50%) translateY(10px);} }
+
+    #links { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; padding:10px 5vw; opacity:0; transform:translateY(50px); transition:opacity 1s ease, transform 1s ease; max-width:600px; margin:20px auto 0; }
+    #links.show { opacity:1; transform:translateY(0); }
+    .btn { padding:14px 0; border-radius:16px; box-shadow:0 2px 8px rgba(0,0,0,0.08); text-decoration:none; font-weight:500; text-align:center; width:100%; height:60px; display:flex; align-items:center; justify-content:center; transition:transform .2s, background .3s; }
+    .btn:hover { transform:scale(1.03); }
+
+    @keyframes rainbow { 0%{background-position:0% 0%} 100%{background-position:400% 0%} }
+
+    footer { padding:16px 20px; max-width:600px; margin:40px auto; font-family:var(--font); font-size:14px; display:flex; justify-content:space-between; align-items:center; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.08); }
+    footer span { font-weight:600; }
+  </style>
+</head>
+<body>
+
+  <div id="loading"><div class="spinner"></div></div>
+
+  <section class="hero">
+    <div class="avatar"></div>
+    <div class="name"></div>
+    <div class="subtitle"></div>
+  </section>
+
+  <svg id="arrow" class="arrow" onclick="document.getElementById('links').scrollIntoView({behavior:'smooth'})" viewBox="0 0 24 24" width="40" height="40">
+    <polyline points="6 9 12 15 18 9" fill="none" stroke="var(--fg)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+
+  <section id="links">
+    <a href="https://tiktok.com/@meteturkg" class="btn" target="_blank">TikTok</a>
+    <a href="https://github.com/meteturkg" class="btn" target="_blank">GitHub</a>
+    <a href="https://roblox.com/users/1085515437/profile" class="btn" target="_blank">Roblox</a>
+    <a href="https://pinterest.com/meteturkg" class="btn" target="_blank">Pinterest</a>
+    <a href="https://youtube.com/@meteturkg" class="btn" target="_blank">YouTube</a>
+    <a href="https://instagram.com/metebeyn6" class="btn" target="_blank">Instagram</a>
+    <a href="https://discord.com/users/1159431835420467221" class="btn" target="_blank">Discord</a>
+    <a href="https://steamcommunity.com/id/wynsher/" class="btn" target="_blank">Steam</a>
+  </section>
+
+  <footer>
+    <span></span>
+  </footer>
+
+  <script src="c-setting.js"></script>
+  <script src="c.js"></script>
+</body>
+</html>
+
