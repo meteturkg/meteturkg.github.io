@@ -58,6 +58,16 @@
       margin-top:20px;
       font-size:clamp(1.8rem, 4vw, 2.5rem);
       font-weight:600;
+      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red);
+      background-size: 400% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow 5s linear infinite;
+      display: inline-block;
+    }
+    @keyframes rainbow {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 400% 0%; }
     }
     .subtitle {
       margin-top:8px;
@@ -119,7 +129,7 @@
     }
 
     footer {
-      background: var(--card);
+      background: #E3E3E3; 
       padding: 16px 20px;
       max-width: 600px;
       margin: 40px auto;
@@ -155,7 +165,7 @@
 
   <section class="hero">
     <div class="avatar"></div>
-    <div class="name">meteturkg</div>
+    <div class="name">meteturkg/meteturkdev</div>
     <div class="subtitle">I'm crazy, yes yes</div>
   </section>
 
@@ -176,7 +186,7 @@
 
   <footer>
     <a href="https://github.com/meteturkg/meteturkg.github.io/blob/main/LICANSE" target="_blank">LICENSE</a>
-    <span>meteturkg</span>
+    <span>meteturkg/meteturkdev</span>
     <a href="https://github.com/meteturkg/meteturkg.github.io" target="_blank">SOURCE</a>
   </footer>
 
@@ -201,4 +211,3 @@
   </script>
 </body>
 </html>
-
