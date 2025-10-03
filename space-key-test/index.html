@@ -105,20 +105,30 @@ window.addEventListener('load', ()=>{
   const timeEl = document.getElementById('time')
 
   function fmt(s){return `${Math.floor(s/60)}:${Math.floor(s%60).toString().padStart(2,'0')}`}
-  function updateIcon(){playIcon.innerHTML = audio.paused ? '<path d="M8 5v14l11-7z"/>' : '<path d="M6 19h4V5H6v14zm8-14h4V5h-4v14z"/>'}
+  function updateIcon(){
+    playIcon.innerHTML = audio.paused 
+      ? '<path d="M8 5v14l11-7z"/>' 
+      : '<path d="M6 19h4V5H6v14zM14 19h4V5h-4v14z"/>'
+  }
 
   playBtn.onclick = ()=>{
     audio.paused ? audio.play() : audio.pause()
-    updateIcon()
   }
 
   audio.addEventListener('play', updateIcon)
   audio.addEventListener('pause', updateIcon)
-  audio.ontimeupdate = ()=>{progress.max=audio.duration; progress.value=audio.currentTime; timeEl.textContent=`${fmt(audio.currentTime)} / ${fmt(audio.duration)}`;}
+  audio.ontimeupdate = ()=>{
+    progress.max=audio.duration
+    progress.value=audio.currentTime
+    timeEl.textContent=`${fmt(audio.currentTime)} / ${fmt(audio.duration)}`
+  }
   progress.oninput = ()=>{audio.currentTime=progress.value}
 
   window.addEventListener('keydown', e=>{
-    if(e.code==='Space'){e.preventDefault(); audio.paused ? audio.play() : audio.pause(); updateIcon()}
+    if(e.code==='Space'){
+      e.preventDefault()
+      audio.paused ? audio.play() : audio.pause()
+    }
   })
 })
 
