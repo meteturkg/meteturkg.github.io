@@ -1,214 +1,282 @@
-<!-- Last Edited 2/10/2025 / 10/2/2025 -->
+<!-- Last Edited 3/10/2025 / 10/3/2025 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>m*</title>
-  <meta name="google" content="notranslate"/>
-  <link rel="icon" type="image/png" href="favicon.png"/>
-  <link rel="apple-touch-icon" href="favicon.png"/>
-  <meta name="theme-color" content="#E7ECE8"/>
-  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --bg: #E3E3E3;
-      --fg: #333;
-      --card: #fff;
-      --accent: #e0e0e0;
-      --hover: #d6dadb;
-      --font: 'Satoshi', sans-serif;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      background: var(--bg);
-      color: var(--fg);
-      font-family: var(--font);
-      overflow-x:hidden;
-      scroll-behavior: smooth;
-    }
-    #loading {
-      position:fixed; inset:0;
-      display:flex; align-items:center; justify-content:center;
-      background:var(--bg); z-index:999;
-    }
-    .spinner {
-      width:48px; height:48px;
-      border:5px solid var(--accent);
-      border-top-color:var(--fg);
-      border-radius:50%;
-      animation:spin 1s linear infinite;
-    }
-    @keyframes spin { to{transform:rotate(360deg);} }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>m*</title>
+<meta name="google" content="notranslate"/>
+<link rel="icon" type="image/png" href="favicon.png"/>
+<link rel="apple-touch-icon" href="favicon.png"/>
+<meta name="theme-color" content="#E7ECE8"/>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#E3E3E3;
+  --fg:#333;
+  --card:#fff;
+  --accent:#e0e0e0;
+  --hover:#d6dadb;
+  --font:'Satoshi',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--font);
+  overflow-x:hidden;
+  scroll-behavior:smooth;
+}
+#loading{
+  position:fixed; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--bg); z-index:999;
+}
+.spinner{
+  width:48px; height:48px;
+  border:5px solid var(--accent);
+  border-top-color:var(--fg);
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  padding:0 5vw;
+}
+.avatar{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  background:url('https://github.com/meteturkg.png') center/cover no-repeat;
+  box-shadow:0 6px 16px rgba(0,0,0,0.2);
+}
+.name{
+  margin-top:20px;
+  font-size:clamp(1.8rem,4vw,2.5rem);
+  font-weight:600;
+  background:linear-gradient(90deg,red,orange,yellow,green,blue,indigo,violet,red);
+  background-size:400% 100%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation: rainbow 7s linear infinite;
+  display:inline-block;
+}
+@keyframes rainbow{0%{background-position:0% 0%}100%{background-position:400% 0%}}
+.subtitle{margin-top:8px;font-size:clamp(1rem,2.5vw,1.2rem);color:rgba(51,51,51,0.7);}
+.arrow{
+  position:fixed;bottom:20px;left:50%;
+  transform:translateX(-50%);
+  width:40px;height:40px;
+  cursor:pointer;
+  animation:bounce 1.5s ease-in-out infinite alternate;
+  z-index:10;
+  transition:opacity .5s ease;
+}
+@keyframes bounce{from{transform:translateX(-50%) translateY(0)}to{transform:translateX(-50%) translateY(10px)}}
+#links{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+  padding:10px 5vw;
+  opacity:0;
+  transform:translateY(50px);
+  transition:opacity 1s ease,transform 1s ease;
+  max-width:600px;
+  margin:20px auto 0;
+}
+#links.show{opacity:1;transform:translateY(0);}
+.btn{
+  background:var(--card);
+  padding:14px 0;
+  border-radius:16px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+  text-decoration:none;
+  color: var(--fg);
+  font-weight:500;
+  transition: transform .2s, background .3s;
+  text-align:center;
+  width:100%;
+  height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.btn:hover{transform:scale(1.03);background:var(--hover);}
+footer{
+  background:#E3E3E3;
+  padding:16px 20px;
+  max-width:600px;
+  margin:40px auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-radius:12px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+  font-family:var(--font);
+  color:var(--fg);
+  font-size:14px;
+}
+footer a{color:#007bff;text-decoration:none;font-weight:600;white-space:nowrap;transition:text-decoration .3s}
+footer a:hover{text-decoration:underline}
+footer span{font-weight:600}
 
-    .hero {
-      height:100vh;
-      display:flex; flex-direction:column;
-      align-items:center; justify-content:center;
-      text-align:center;
-      position:relative;
-      padding:0 5vw;
-    }
-    .avatar {
-      width:160px; height:160px;
-      border-radius:50%;
-      background:url('https://github.com/meteturkg.png') center/cover no-repeat;
-      box-shadow:0 6px 16px rgba(0,0,0,0.2);
-    }
-    .name {
-      margin-top:20px;
-      font-size:clamp(1.8rem, 4vw, 2.5rem);
-      font-weight:600;
-      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red);
-      background-size: 400% 100%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: rainbow 7s linear infinite;
-      display: inline-block;
-    }
-    @keyframes rainbow {
-      0% { background-position: 0% 0%; }
-      100% { background-position: 400% 0%; }
-    }
-    .subtitle {
-      margin-top:8px;
-      font-size:clamp(1rem, 2.5vw, 1.2rem);
-      color:rgba(51,51,51,0.7);
-    }
-
-    .arrow {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      animation: bounce 1.5s ease-in-out infinite alternate;
-      z-index: 10;
-      transition: opacity 0.5s ease;
-    }
-    @keyframes bounce {
-      from { transform: translateX(-50%) translateY(0); }
-      to   { transform: translateX(-50%) translateY(10px); }
-    }
-
-    #links {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      padding: 10px 5vw;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 1s ease, transform 1s ease;
-      max-width: 600px;
-      margin: 20px auto 0;
-    }
-    #links.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .btn {
-      background: var(--card);
-      padding: 14px 0;
-      border-radius: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      text-decoration: none;
-      color: var(--fg);
-      font-weight: 500;
-      transition: transform .2s, background .3s;
-      text-align: center;
-      width: 100%;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .btn:hover {
-      transform: scale(1.03);
-      background: var(--hover);
-    }
-
-    footer {
-      background: #E3E3E3; 
-      padding: 16px 20px;
-      max-width: 600px;
-      margin: 40px auto;
-      font-family: var(--font);
-      color: var(--fg);
-      font-size: 14px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    }
-    footer a {
-      color: #007bff;
-      text-decoration: none;
-      font-weight: 600;
-      white-space: nowrap;
-      transition: text-decoration 0.3s;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-    footer span {
-      font-weight: 600;
-    }
-  </style>
+/* sabit müzik çubuğu */
+.music-card{
+  margin-top:16px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:#fff;
+  padding:12px 16px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.06);
+  max-width:520px;
+  width:100%;
+  margin-left:auto;
+  margin-right:auto;
+  flex-shrink:0;
+}
+.music-cover{
+  width:64px;
+  height:64px;
+  border-radius:8px;
+  background-size:cover;
+  background-position:center;
+  flex-shrink:0;
+}
+.music-info{
+  flex:1;
+  min-width:0;
+}
+.music-title{
+  font-weight:600;
+  font-size:1rem;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.music-controls{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:6px;
+}
+#play-btn{
+  width:36px;
+  height:36px;
+  border:none;
+  border-radius:8px;
+  background:#e0e0e0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  flex-shrink:0;
+}
+#play-icon{width:18px;height:18px;}
+#progress{
+  width:100%;
+  height:6px;
+  border-radius:6px;
+  background:#d6dadb;
+  -webkit-appearance:none;
+  cursor:pointer;
+}
+#progress::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#000;
+  box-shadow:0 1px 2px rgba(0,0,0,0.2);
+}
+#time{
+  font-size:12px;
+  color:rgba(0,0,0,0.55);
+  min-width:40px;
+  text-align:right;
+  flex-shrink:0;
+}
+</style>
 </head>
 <body>
 
-  <div id="loading">
-    <div class="spinner"></div>
+<div id="loading"><div class="spinner"></div></div>
+
+<section class="hero">
+  <div class="avatar"></div>
+  <div class="name">meteturkg/meteturkdev</div>
+  <div class="subtitle">I'm crazy, yes yes</div>
+
+  <div class="music-card">
+    <div class="music-cover" style="background-image:url('https://meteturkg.dev.tc/sound-rock-out-in-my-jammies-dolo-von/rock-out-in-my-jammies-cover-photo.png');"></div> 
+    <div class="music-info">
+      <div class="music-title">ROCK OUT IN MY JAMMIES</div>
+      <div class="music-controls">
+        <button id="play-btn">
+          <svg id="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <input type="range" id="progress" min="0" max="100" value="0">
+        <div id="time">0:00</div>
+      </div>
+      <audio id="audio-player" src="https://meteturkg.dev.tc/sound-rock-out-in-my-jammies-dolo-von/rock-out-in-my-jammies.wav" preload="auto" loop autoplay></audio> 
+    </div>
   </div>
+</section>
 
-  <section class="hero">
-    <div class="avatar"></div>
-    <div class="name">meteturkg/meteturkdev</div>
-    <div class="subtitle">I'm crazy, yes yes</div>
-  </section>
+<svg id="arrow" class="arrow" onclick="scrollToLinks()" viewBox="0 0 24 24" width="40" height="40">
+  <polyline points="6 9 12 15 18 9" fill="none" stroke="var(--fg)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
 
-  <svg id="arrow" class="arrow" onclick="scrollToLinks()" viewBox="0 0 24 24" width="40" height="40">
-    <polyline points="6 9 12 15 18 9" fill="none" stroke="var(--fg)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
+<section id="links">
+  <a href="https://tiktok.com/@meteturkg" class="btn" target="_blank">TikTok</a>
+  <a href="https://github.com/meteturkg" class="btn" target="_blank">GitHub</a>
+  <a href="https://roblox.com/users/1085515437/profile" class="btn" target="_blank">Roblox</a>
+  <a href="https://pinterest.com/meteturkg" class="btn" target="_blank">Pinterest</a>
+  <a href="https://youtube.com/@meteturkg" class="btn" target="_blank">YouTube</a>
+  <a href="https://instagram.com/metebeyn6" class="btn" target="_blank">Instagram</a>
+  <a href="https://discord.com/users/1159431835420467221" class="btn" target="_blank">Discord</a>
+  <a href="https://steamcommunity.com/id/wynsher/" class="btn" target="_blank">Steam</a>
+</section>
 
-  <section id="links">
-    <a href="https://tiktok.com/@meteturkg" class="btn" target="_blank">TikTok</a>
-    <a href="https://github.com/meteturkg" class="btn" target="_blank">GitHub</a>
-    <a href="https://roblox.com/users/1085515437/profile" class="btn" target="_blank">Roblox</a>
-    <a href="https://pinterest.com/meteturkg" class="btn" target="_blank">Pinterest</a>
-    <a href="https://youtube.com/@meteturkg" class="btn" target="_blank">YouTube</a>
-    <a href="https://instagram.com/metebeyn6" class="btn" target="_blank">Instagram</a>
-    <a href="https://discord.com/users/1159431835420467221" class="btn" target="_blank">Discord</a>
-    <a href="https://steamcommunity.com/id/wynsher/" class="btn" target="_blank">Steam</a>
-  </section>
+<footer>
+  <a href="https://github.com/meteturkg/meteturkg.github.io/blob/main/LICANSE" target="_blank">LICENSE</a>
+  <span>meteturkg/meteturkdev</span>
+  <a href="https://github.com/meteturkg/meteturkg.github.io" target="_blank">SOURCE</a>
+</footer>
 
-  <footer>
-    <a href="https://github.com/meteturkg/meteturkg.github.io/blob/main/LICANSE" target="_blank">LICENSE</a>
-    <span>meteturkg/meteturkdev</span>
-    <a href="https://github.com/meteturkg/meteturkg.github.io" target="_blank">SOURCE</a>
-  </footer>
+<script>
+window.addEventListener('load',()=>{document.getElementById('loading').style.display='none';});
+function scrollToLinks(){document.getElementById('links').scrollIntoView({behavior:'smooth'});}
+const arrow=document.getElementById('arrow'),links=document.getElementById('links');
+window.addEventListener('scroll',()=>{if(window.scrollY>window.innerHeight*.2){links.classList.add('show');arrow.style.opacity='0';}});
 
-  <script>
-    window.addEventListener('load', ()=> {
-      document.getElementById('loading').style.display = 'none';
-    });
+const audio=document.getElementById('audio-player'),
+      playBtn=document.getElementById('play-btn'),
+      playIcon=document.getElementById('play-icon'),
+      progress=document.getElementById('progress'),
+      timeEl=document.getElementById('time');
 
-    function scrollToLinks(){
-      document.getElementById('links').scrollIntoView({behavior:'smooth'});
-    }
+function fmt(s){return `${Math.floor(s/60)}:${Math.floor(s%60).toString().padStart(2,'0')}`;}
+function setPlayUI(on){playIcon.innerHTML=on?'<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>':'<path d="M8 5v14l11-7z"/>';}
 
-    const arrow = document.getElementById('arrow');
-    const links = document.getElementById('links');
+// otomatik oynatma ve loop
+audio.loop=true;
+audio.autoplay=true;
 
-    window.addEventListener('scroll', () => {
-      if(window.scrollY > window.innerHeight * 0.2){
-        links.classList.add('show');
-        arrow.style.opacity = '0';
-      }
-    });
-  </script>
+audio.addEventListener('play',()=>setPlayUI(true));
+audio.addEventListener('pause',()=>setPlayUI(false));
+
+playBtn.onclick=()=>{audio.paused?(audio.play(),setPlayUI(true)):(audio.pause(),setPlayUI(false));}
+audio.ontimeupdate=()=>{progress.max=audio.duration;progress.value=audio.currentTime;timeEl.textContent=`${fmt(audio.currentTime)} / ${fmt(audio.duration)}`;}
+progress.oninput=()=>{audio.currentTime=progress.value;}
+</script>
 </body>
 </html>
