@@ -1,4 +1,4 @@
-<!-- Last Edited 3/10/2025 / 10/3/2025 -->
+<!-- Last Edited 4/10/2025 / 10/4/2025 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -127,7 +127,6 @@ footer a{color:#007bff;text-decoration:none;font-weight:600;white-space:nowrap;t
 footer a:hover{text-decoration:underline}
 footer span{font-weight:600}
 
-/* sabit müzik çubuğu */
 .music-card{
   margin-top:16px;
   display:flex;
@@ -267,7 +266,6 @@ const audio=document.getElementById('audio-player'),
 function fmt(s){return `${Math.floor(s/60)}:${Math.floor(s%60).toString().padStart(2,'0')}`;}
 function setPlayUI(on){playIcon.innerHTML=on?'<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>':'<path d="M8 5v14l11-7z"/>';}
 
-// otomatik oynatma ve loop
 audio.loop=true;
 audio.autoplay=true;
 
